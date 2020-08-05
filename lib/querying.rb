@@ -24,6 +24,10 @@ def select_name_and_series_subgenres_of_authors
   INNER JOIN series ON subgenres.id = series.subgenre_id
   JOIN authors ON authors.id = series.author_id
   GROUP BY(authors.name);"
+  #return name of authors and names of subgenres from subgenres
+  #join series table with subgenres table, where subgenre id is equal to the series' subgenre_id
+  #join authors table where author's id equal to series' authors id
+  #group by name of author 
 end
 
 def select_series_title_with_most_human_characters
