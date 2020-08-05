@@ -19,11 +19,9 @@ def select_value_and_count_of_most_prolific_species
 end
 
 def select_series_title_with_most_human_characters
-  "SELECT title FROM (
-    SELECT series.title AS title, COUNT(characters.series_id) AS num_species
-      FROM series
-      INNER JOIN characters
-        ON series.id = characters.series_id
+  "SELECT series.title
+  FROM series
+  INNER JOIN characters ON characters.series.id = characters.series_id
       WHERE characters.species = 'human'
       GROUP BY characters.series_id
       ORDER BY num_species DESC
